@@ -33,10 +33,11 @@ type Data private () =
 
   /// <summary>Exports data from given entities to a file.</summary>
   /// <param name="env">Environment the action should be performed against.</param>
-  static member Export(env: Environment, entityNames, pathToOutputFile, ?deltaFromDate, ?logLevel) =
+  static member Export(env: Environment, entityNames, pathToOutputFile, ?deltaFromDate, ?logLevel, ?serialize) =
     let usr, pwd, dmn = env.getCreds()
     let logLevel = logLevel ?| LogLevel.Verbose
+    let serialize = serialize ?| Serialize.JSON
 
     match deltaFromDate with
-    | Some date -> Main.exportDelta env.url pathToOutputFile entityNames date env.apToUse usr pwd dmn logLevel
-    | None      -> Main.export env.url pathToOutputFile entityNames env.apToUse usr pwd dmn logLevel
+    | Some date -> Main.exportDelta env.url pathToOutputFile entityNames date env.apToUse usr pwd dmn logLevel serialize
+    | None      -> Main.export env.url pathToOutputFile entityNames env.apToUse usr pwd dmn logLevel serialize

@@ -7,8 +7,7 @@ open DG.Daxif
 
 let entities = 
   [|
-    "account"
-    "contact"
+    "alm_setting"
   |]
 
 Data.Export(Env.dev, entities, Path.Daxif.dataFolder)

@@ -4,8 +4,8 @@ open System
 open System.IO
 open System.Text
 open Microsoft.Crm.Sdk
-open Microsoft.Crm.Tools.SolutionPackager
 open Microsoft.Xrm.Sdk
+open Microsoft.Crm.Tools.SolutionPackager
 open DG.Daxif
 open DG.Daxif.Common
 open DG.Daxif.Common.Utility

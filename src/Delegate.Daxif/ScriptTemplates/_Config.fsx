@@ -3,7 +3,9 @@ Sets up all the necessary variables and functions to be used for the other scrip
 *)
 #r @"bin\Microsoft.Xrm.Sdk.dll"
 #r @"bin\Microsoft.Crm.Sdk.Proxy.dll"
+
 #r @"bin\Delegate.Daxif.dll"
+
 open System
 open Microsoft.Xrm.Sdk.Client
 open DG.Daxif
@@ -21,7 +23,7 @@ module Env =
   let dev = 
     Environment.Create(
       name = "Development",
-      url = "https://mydev.crm4.dynamics.com/XRMServices/2011/Organization.svc",
+      url = "https://almcrmdev.crm4.dynamics.com/XRMServices/2011/Organization.svc",
       ap = AuthenticationProviderType.OnlineFederation,
       creds = creds,
       args = fsi.CommandLineArgs
@@ -92,7 +94,7 @@ module Path =
 
     let translationsFolder = daxifRoot ++ "translations"
     let metadataFolder = daxifRoot ++ "metadata"
-    let dataFolder = daxifRoot ++ "data"
+    let dataFolder = solutionRoot ++ "ALM.Data\Reference"
     let stateFolder = daxifRoot ++ "state"
     let associationsFolder = daxifRoot ++ "associations"
     let mappingFolder = daxifRoot ++ "mapping"

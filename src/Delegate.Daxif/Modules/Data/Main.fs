@@ -51,6 +51,7 @@ let reassignAllRecords org userFrom userTo ap usr pwd domain log =
   DataHelper.reassignAllRecords'' org ac userFrom userTo log' |> ignore
   log'.WriteLine(LogLevel.Info, @"The data was assigned successfully")
   
+  // 
 let export org location entityNames ap usr pwd domain log serialize = 
   let ac = CrmAuth.getCredentials ap usr pwd domain
   let log' = ConsoleLogger log
@@ -61,7 +62,7 @@ let export org location entityNames ap usr pwd domain log serialize =
   log'.WriteLine(LogLevel.Verbose, @"Organization: " + org.ToString())
   log'.WriteLine(LogLevel.Verbose, @"Path to folder: " + location)
   logAuthentication ap usr pwd' domain log'
-  DataHelper.export' org ac location entityNames log' serialize
+  DataHelper.export' org ac location entityNames log' serialize 
   log'.WriteLine(LogLevel.Info, @"The data was exported successfully")
   
 let exportDelta org location entityNames date ap usr pwd domain log serialize = 
